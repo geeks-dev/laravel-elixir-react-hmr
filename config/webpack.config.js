@@ -19,15 +19,13 @@ module.exports = {
         chunkFilename: '[name].[id].chunk.js'
     },
 
-    module : {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: babelrc
-            }
-        ]
+    module: {
+        loaders: [{
+            test: /\.jsx?$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: babelrc
+        }]
     },
 
     plugins: [
@@ -41,5 +39,8 @@ module.exports = {
         // For HMR
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
-    ]
+    ],
+    resolve: {
+        extensions: ['.js', '.jsx']
+    }
 };
